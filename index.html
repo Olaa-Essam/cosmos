@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>COSMOS - Space Dashboard</title>
+
+    <link rel="icon" href="./assets/images/favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    >
+
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+
+
+    <aside id="sidebar" class="sidebar">
+
+        <div class="sidebar-top">
+
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-rocket"></i>
+                </div>
+
+                <div>
+                    <h2>COSMOS</h2>
+                    <span>Space Dashboard</span>
+                </div>
+            </div>
+
+            <button
+                id="sidebar-toggle"
+                class="sidebar-toggle"
+                aria-label="Toggle sidebar"
+            >
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+        </div>
+
+
+        <nav class="navigation">
+
+            <button
+                class="nav-link active"
+                data-section="today-in-space"
+            >
+                <i class="fa-solid fa-image"></i>
+                <span>Today in Space</span>
+            </button>
+
+            <button
+                class="nav-link"
+                data-section="launches"
+            >
+                <i class="fa-solid fa-rocket"></i>
+                <span>Launches</span>
+            </button>
+
+            <button
+                class="nav-link"
+                data-section="planets"
+            >
+                <i class="fa-solid fa-earth-americas"></i>
+                <span>Planets</span>
+            </button>
+
+        </nav>
+
+
+        <div class="sidebar-profile">
+
+            <div class="profile-avatar">
+                <i class="fa-solid fa-user-astronaut"></i>
+            </div>
+
+            <div>
+                <strong>Space Explorer</strong>
+                <span>explorer@cosmos.space</span>
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <div id="sidebar-overlay" class="sidebar-overlay"></div>
+
+
+
+    <div class="main-wrapper">
+
+
+        <header class="header">
+
+            <div class="header-content">
+
+                <span class="header-label">
+                    <i class="fa-solid fa-satellite"></i>
+                    SPACE EXPLORER
+                </span>
+
+                <h1>Space Explorer Dashboard</h1>
+
+                <p>
+                    Real-time space data from NASA &amp; SpaceDevs
+                </p>
+
+            </div>
+
+            <div class="header-status">
+
+                <span class="live-dot"></span>
+
+                <div>
+                    <span>Live Data</span>
+                    <strong>Online</strong>
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <main>
+
+
+            <div class="dashboard-stats">
+
+                <div class="stat-card">
+
+                    <div class="stat-card-icon">
+                        <i class="fa-solid fa-satellite-dish"></i>
+                    </div>
+
+                    <div>
+                        <span>Data Status</span>
+                        <strong>Live Data</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-card-icon">
+                        <i class="fa-solid fa-earth-americas"></i>
+                    </div>
+
+                    <div>
+                        <span>Solar System</span>
+                        <strong>8 Planets</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-card-icon">
+                        <i class="fa-solid fa-rocket"></i>
+                    </div>
+
+                    <div>
+                        <span>Upcoming</span>
+
+                        <strong id="launches-count">
+                            10 Launches
+                        </strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <section
+                id="today-in-space"
+                class="section"
+                data-section="today-in-space"
+            >
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <span class="section-label">
+                            <i class="fa-solid fa-star"></i>
+                            NASA Astronomy Picture of the Day
+                        </span>
+
+                        <h2>Today in Space</h2>
+
+                        <p>
+                            Discover a different view of our universe every day.
+                        </p>
+
+                    </div>
+
+
+                    <div class="date-controls">
+
+                        <div class="date-input-wrapper">
+
+                            <input
+                                type="date"
+                                id="apod-date-input"
+                                class="custom-date-input"
+                                min="1995-06-16"
+                            >
+
+                        </div>
+
+
+                        <button
+                            id="load-date-btn"
+                            class="primary-btn"
+                        >
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            Load
+                        </button>
+
+
+                        <button
+                            id="today-apod-btn"
+                            class="secondary-btn"
+                        >
+                            Today
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="apod-card">
+
+                    <div class="apod-media">
+
+                        <div
+                            id="apod-loading"
+                            class="loading"
+                        >
+                            <i class="fa-solid fa-spinner fa-spin"></i>
+                            <span>Loading today's image...</span>
+                        </div>
+
+
+                        <div id="apod-image-container">
+
+                            <img
+                                id="apod-image"
+                                src="./assets/images/placeholder.webp"
+                                alt="NASA Astronomy Picture of the Day"
+                            >
+
+
+                            <a
+                                id="apod-fullscreen"
+                                class="fullscreen-btn"
+                                href="#"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <i class="fa-solid fa-expand"></i>
+                                View Full Resolution
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="apod-content">
+
+                        <div class="apod-meta">
+
+                            <span id="apod-date-detail">
+                                <i class="fa-regular fa-calendar"></i>
+                                Loading...
+                            </span>
+
+
+                            <span id="apod-media-type">
+                                <i class="fa-solid fa-image"></i>
+                                Image
+                            </span>
+
+                        </div>
+
+
+                        <h3 id="apod-title">
+                            Astronomy Picture of the Day
+                        </h3>
+
+
+                        <p id="apod-explanation">
+                            Loading today's image...
+                        </p>
+
+
+                        <div
+                            id="apod-copyright"
+                            class="copyright"
+                        ></div>
+
+
+                        <div class="apod-source">
+
+                            <div class="source-icon">
+                                <i class="fa-solid fa-globe"></i>
+                            </div>
+
+                            <div>
+                                <span>Source</span>
+                                <strong>NASA APOD</strong>
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            id="apod-date-info"
+                            class="date-info"
+                        >
+
+                            <i class="fa-regular fa-calendar"></i>
+
+                            <span id="apod-date-info-text">
+                                Loading date...
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <section
+                id="launches"
+                class="section hidden"
+                data-section="launches"
+            >
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <span class="section-label">
+                            <i class="fa-solid fa-rocket"></i>
+                            SPACEDEVS LAUNCH LIBRARY
+                        </span>
+
+                        <h2>Upcoming Launches</h2>
+
+                        <p>
+                            Track upcoming missions and rocket launches
+                            around the world.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div
+                    id="featured-launch"
+                    class="featured-launch"
+                >
+
+                    <div class="featured-loading">
+
+                        <i class="fa-solid fa-spinner fa-spin"></i>
+
+                        <span>
+                            Loading featured launch...
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="launches-header">
+
+                    <div>
+                        <span class="section-label">
+                            <i class="fa-solid fa-list"></i>
+                            UPCOMING MISSIONS
+                        </span>
+
+                        <h3>All Upcoming Launches</h3>
+                    </div>
+
+                    <span
+                        id="launches-count-mobile"
+                        class="launch-count"
+                    >
+                        10 launches
+                    </span>
+
+                </div>
+
+
+
+                <div
+                    id="launches-grid"
+                    class="launches-grid"
+                >
+
+                    <div class="empty-state">
+
+                        <i class="fa-solid fa-rocket"></i>
+
+                        <p>
+                            Loading launches...
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <section
+                id="planets"
+                class="section hidden"
+                data-section="planets"
+            >
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <span class="section-label">
+                            <i class="fa-solid fa-earth-americas"></i>
+                            SOLAR SYSTEM OPENDATA
+                        </span>
+
+                        <h2>Explore the Planets</h2>
+
+                        <p>
+                            Discover the planets that make up our solar system.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                
+
+                <div
+                    id="planets-grid"
+                    class="planets-grid"
+                >
+
+                    
+
+                    <button
+                        class="planet-card"
+                        data-planet-id="mercury"
+                    >
+
+                        <div class="planet-card-image">
+                            <img
+                                src="./assets/images/mercury.png"
+                                alt="Mercury"
+                            >
+                        </div>
+
+                        <span>Mercury</span>
+
+                    </button>
+
+
+                    
+
+                    <button
+                        class="planet-card"
+                        data-planet-id="venus"
+                    >
+
+                        <div class="planet-card-image">
+                            <img
+                                src="./assets/images/venus.png"
+                                alt="Venus"
+                            >
+                        </div>
+
+                        <span>Venus</span>
+
+                    </button>
+
+
+                    
+
+                    <button
+                        class="planet-card active"
+                        data-planet-id="earth"
+                    >
+
+                        <div class="planet-card-image">
+                            <img
+                                src="./assets/images/earth.png"
+                                alt="Earth"
+                            >
+                        </div>
+
+                        <span>Earth</span>
+
+                    </button>
+
+
+                    
+
+                    <button
+                        class="planet-card"
+                        data-planet-id="mars"
+                    >
+
+                        <div class="planet-card-image">
+                            <img
+                                src="./assets/images/mars.png"
+                                alt="Mars"
+                            >
+                        </div>
+
+                        <span>Mars</span>
+
+                    </button>
+
+
+                    
+
+                    <button
+                        class="planet-card"
+                        data-planet-id="jupiter"
+                    >
+
+                        <div class="planet-card-image">
+                            <img
+                                src="./assets/images/jupiter.png"
+                                alt="Jupiter"
+                            >
+                        </div>
+
+                        <span>Jupiter</span>
+
+                    </button>
+
+
+                    
+
+                    <button
+                        class="planet-card"
+                        data-planet-id="saturn"
+                    >
+
+                        <div class="planet-card-image">
+                            <img
+                                src="./assets/images/saturn.png"
+                                alt="Saturn"
+                            >
+                        </div>
+
+                        <span>Saturn</span>
+
+                    </button>
+
+
+                   
+
+                    <button
+                        class="planet-card"
+                        data-planet-id="uranus"
+                    >
+
+                        <div class="planet-card-image">
+                            <img
+                                src="./assets/images/uranus.png"
+                                alt="Uranus"
+                            >
+                        </div>
+
+                        <span>Uranus</span>
+
+                    </button>
+
+
+                    
+
+                    <button
+                        class="planet-card"
+                        data-planet-id="neptune"
+                    >
+
+                        <div class="planet-card-image">
+                            <img
+                                src="./assets/images/neptune.png"
+                                alt="Neptune"
+                            >
+                        </div>
+
+                        <span>Neptune</span>
+
+                    </button>
+
+                </div>
+
+
+                
+
+                <div class="planet-details">
+
+                    <div class="planet-visual">
+
+                        <img
+                            id="planet-detail-image"
+                            src="./assets/images/earth.png"
+                            alt="Earth"
+                        >
+
+                    </div>
+
+
+                    <div class="planet-info">
+
+                        <span class="section-label">
+                            PLANET DETAILS
+                        </span>
+
+                        <h3 id="planet-detail-name">
+                            Earth
+                        </h3>
+
+
+                        <p id="planet-detail-description">
+                            Loading planet information...
+                        </p>
+
+
+                        <div class="planet-stats">
+
+                            <div class="stat">
+                                <span>Distance from Sun</span>
+                                <strong id="planet-distance">-</strong>
+                            </div>
+
+                            <div class="stat">
+                                <span>Radius</span>
+                                <strong id="planet-radius">-</strong>
+                            </div>
+
+                            <div class="stat">
+                                <span>Mass</span>
+                                <strong id="planet-mass">-</strong>
+                            </div>
+
+                            <div class="stat">
+                                <span>Density</span>
+                                <strong id="planet-density">-</strong>
+                            </div>
+
+                            <div class="stat">
+                                <span>Orbital Period</span>
+                                <strong id="planet-orbital-period">-</strong>
+                            </div>
+
+                            <div class="stat">
+                                <span>Rotation Period</span>
+                                <strong id="planet-rotation">-</strong>
+                            </div>
+
+                            <div class="stat">
+                                <span>Moons</span>
+                                <strong id="planet-moons">-</strong>
+                            </div>
+
+                            <div class="stat">
+                                <span>Gravity</span>
+                                <strong id="planet-gravity">-</strong>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="planet-extra">
+
+                    <div class="info-card">
+                        <span>Discoverer</span>
+                        <strong id="planet-discoverer">-</strong>
+                    </div>
+
+                    <div class="info-card">
+                        <span>Discovery Date</span>
+                        <strong id="planet-discovery-date">-</strong>
+                    </div>
+
+                    <div class="info-card">
+                        <span>Body Type</span>
+                        <strong id="planet-body-type">-</strong>
+                    </div>
+
+                    <div class="info-card">
+                        <span>Volume</span>
+                        <strong id="planet-volume">-</strong>
+                    </div>
+
+                </div>
+
+
+
+                <div class="planet-facts">
+
+                    <div class="facts-heading">
+                        <i class="fa-solid fa-lightbulb"></i>
+
+                        <h3>Planet Facts</h3>
+                    </div>
+
+                    <p id="planet-facts">
+                        Loading facts...
+                    </p>
+
+                </div>
+
+
+
+                <div class="planet-orbit">
+
+                    <div class="orbit-item">
+                        <span>Perihelion</span>
+                        <strong id="planet-perihelion">-</strong>
+                    </div>
+
+                    <div class="orbit-item">
+                        <span>Aphelion</span>
+                        <strong id="planet-aphelion">-</strong>
+                    </div>
+
+                    <div class="orbit-item">
+                        <span>Eccentricity</span>
+                        <strong id="planet-eccentricity">-</strong>
+                    </div>
+
+                    <div class="orbit-item">
+                        <span>Inclination</span>
+                        <strong id="planet-inclination">-</strong>
+                    </div>
+
+                    <div class="orbit-item">
+                        <span>Axial Tilt</span>
+                        <strong id="planet-axial-tilt">-</strong>
+                    </div>
+
+                    <div class="orbit-item">
+                        <span>Temperature</span>
+                        <strong id="planet-temp">-</strong>
+                    </div>
+
+                    <div class="orbit-item">
+                        <span>Escape Velocity</span>
+                        <strong id="planet-escape">-</strong>
+                    </div>
+
+                </div>
+
+
+
+                <div class="comparison">
+
+                    <div class="comparison-heading">
+
+                        <span class="section-label">
+                            <i class="fa-solid fa-chart-column"></i>
+                            COMPARISON
+                        </span>
+
+                        <h3>Planet Comparison</h3>
+
+                        <p>
+                            Compare the main characteristics of our planets.
+                        </p>
+
+                    </div>
+
+
+                    <div class="table-wrapper">
+
+                        <table>
+
+                            <thead>
+
+                                <tr>
+                                    <th>Planet</th>
+                                    <th>Radius</th>
+                                    <th>Mass</th>
+                                    <th>Gravity</th>
+                                    <th>Moons</th>
+                                    <th>Orbital Period</th>
+                                </tr>
+
+                            </thead>
+
+                            <tbody id="planet-comparison-tbody">
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+
+
+        <footer>
+
+            <p>
+                COSMOS Space Dashboard
+                <span>•</span>
+                Explore beyond the stars
+            </p>
+
+        </footer>
+
+    </div>
+
+
+
+    <script src="./assets/js/index.js"></script>
+    <script src="./assets/js/app.js"></script>
+
+</body>
+
+</html>

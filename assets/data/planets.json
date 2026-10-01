@@ -1,0 +1,253 @@
+[
+  {
+    "id": "mercury",
+    "englishName": "Mercury",
+    "isPlanet": true,
+    "moons": [],
+    "semimajorAxis": 57909050,
+    "perihelion": 46001200,
+    "aphelion": 69816900,
+    "eccentricity": 0.20563,
+    "inclination": 7.005,
+    "mass": {
+      "massValue": 3.3011,
+      "massExponent": 23
+    },
+    "vol": {
+      "volValue": 6.083,
+      "volExponent": 10
+    },
+    "density": 5.43,
+    "gravity": 3.7,
+    "escape": 4250,
+    "meanRadius": 2439.7,
+    "sideralOrbit": 87.969,
+    "sideralRotation": 1407.6,
+    "discoveredBy": "",
+    "discoveryDate": "",
+    "axialTilt": 0.034,
+    "avgTemp": 440,
+    "bodyType": "Planet"
+  },
+  {
+    "id": "venus",
+    "englishName": "Venus",
+    "isPlanet": true,
+    "moons": [],
+    "semimajorAxis": 108208000,
+    "perihelion": 107476000,
+    "aphelion": 108942000,
+    "eccentricity": 0.0067,
+    "inclination": 3.3947,
+    "mass": {
+      "massValue": 4.8675,
+      "massExponent": 24
+    },
+    "vol": {
+      "volValue": 9.2843,
+      "volExponent": 11
+    },
+    "density": 5.24,
+    "gravity": 8.87,
+    "escape": 10360,
+    "meanRadius": 6051.8,
+    "sideralOrbit": 224.701,
+    "sideralRotation": -5832.5,
+    "discoveredBy": "",
+    "discoveryDate": "",
+    "axialTilt": 177.36,
+    "avgTemp": 737,
+    "bodyType": "Planet"
+  },
+  {
+    "id": "earth",
+    "englishName": "Earth",
+    "isPlanet": true,
+    "moons": [
+      {
+        "moon": "Moon"
+      }
+    ],
+    "semimajorAxis": 149598023,
+    "perihelion": 147095000,
+    "aphelion": 152100000,
+    "eccentricity": 0.0167,
+    "inclination": 0,
+    "mass": {
+      "massValue": 5.97237,
+      "massExponent": 24
+    },
+    "vol": {
+      "volValue": 1.08321,
+      "volExponent": 12
+    },
+    "density": 5.51,
+    "gravity": 9.81,
+    "escape": 11190,
+    "meanRadius": 6371,
+    "sideralOrbit": 365.256,
+    "sideralRotation": 23.934,
+    "discoveredBy": "",
+    "discoveryDate": "",
+    "axialTilt": 23.44,
+    "avgTemp": 288,
+    "bodyType": "Planet"
+  },
+  {
+    "id": "mars",
+    "englishName": "Mars",
+    "isPlanet": true,
+    "moons": [
+      {
+        "moon": "Phobos"
+      },
+      {
+        "moon": "Deimos"
+      }
+    ],
+    "semimajorAxis": 227939200,
+    "perihelion": 206700000,
+    "aphelion": 249200000,
+    "eccentricity": 0.0935,
+    "inclination": 1.8506,
+    "mass": {
+      "massValue": 6.4171,
+      "massExponent": 23
+    },
+    "vol": {
+      "volValue": 1.6318,
+      "volExponent": 11
+    },
+    "density": 3.93,
+    "gravity": 3.71,
+    "escape": 5027,
+    "meanRadius": 3389.5,
+    "sideralOrbit": 686.98,
+    "sideralRotation": 24.623,
+    "discoveredBy": "",
+    "discoveryDate": "",
+    "axialTilt": 25.19,
+    "avgTemp": 210,
+    "bodyType": "Planet"
+  },
+  {
+    "id": "jupiter",
+    "englishName": "Jupiter",
+    "isPlanet": true,
+    "moons": [],
+    "semimajorAxis": 778570000,
+    "perihelion": 740520000,
+    "aphelion": 816620000,
+    "eccentricity": 0.0489,
+    "inclination": 1.303,
+    "mass": {
+      "massValue": 1.8982,
+      "massExponent": 27
+    },
+    "vol": {
+      "volValue": 1.43128,
+      "volExponent": 15
+    },
+    "density": 1.33,
+    "gravity": 24.79,
+    "escape": 59500,
+    "meanRadius": 69911,
+    "sideralOrbit": 4332.59,
+    "sideralRotation": 9.925,
+    "discoveredBy": "",
+    "discoveryDate": "",
+    "axialTilt": 3.13,
+    "avgTemp": 165,
+    "bodyType": "Planet"
+  },
+  {
+    "id": "saturn",
+    "englishName": "Saturn",
+    "isPlanet": true,
+    "moons": [],
+    "semimajorAxis": 1433530000,
+    "perihelion": 1352550000,
+    "aphelion": 1514500000,
+    "eccentricity": 0.0565,
+    "inclination": 2.485,
+    "mass": {
+      "massValue": 5.6834,
+      "massExponent": 26
+    },
+    "vol": {
+      "volValue": 8.2713,
+      "volExponent": 14
+    },
+    "density": 0.69,
+    "gravity": 10.44,
+    "escape": 35500,
+    "meanRadius": 58232,
+    "sideralOrbit": 10759.22,
+    "sideralRotation": 10.656,
+    "discoveredBy": "",
+    "discoveryDate": "",
+    "axialTilt": 26.73,
+    "avgTemp": 134,
+    "bodyType": "Planet"
+  },
+  {
+    "id": "uranus",
+    "englishName": "Uranus",
+    "isPlanet": true,
+    "moons": [],
+    "semimajorAxis": 2872460000,
+    "perihelion": 2741300000,
+    "aphelion": 3003600000,
+    "eccentricity": 0.0463,
+    "inclination": 0.773,
+    "mass": {
+      "massValue": 8.681,
+      "massExponent": 25
+    },
+    "vol": {
+      "volValue": 6.833,
+      "volExponent": 13
+    },
+    "density": 1.27,
+    "gravity": 8.69,
+    "escape": 21300,
+    "meanRadius": 25362,
+    "sideralOrbit": 30688.5,
+    "sideralRotation": -17.24,
+    "discoveredBy": "William Herschel",
+    "discoveryDate": "1781-03-13",
+    "axialTilt": 97.77,
+    "avgTemp": 76,
+    "bodyType": "Planet"
+  },
+  {
+    "id": "neptune",
+    "englishName": "Neptune",
+    "isPlanet": true,
+    "moons": [],
+    "semimajorAxis": 4495060000,
+    "perihelion": 4444450000,
+    "aphelion": 4545700000,
+    "eccentricity": 0.0086,
+    "inclination": 1.77,
+    "mass": {
+      "massValue": 1.02413,
+      "massExponent": 26
+    },
+    "vol": {
+      "volValue": 6.254,
+      "volExponent": 13
+    },
+    "density": 1.64,
+    "gravity": 11.15,
+    "escape": 23500,
+    "meanRadius": 24622,
+    "sideralOrbit": 60182,
+    "sideralRotation": 16.11,
+    "discoveredBy": "Johann Galle",
+    "discoveryDate": "1846-09-23",
+    "axialTilt": 28.32,
+    "avgTemp": 72,
+    "bodyType": "Planet"
+  }
+]
